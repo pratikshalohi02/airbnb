@@ -28,7 +28,12 @@ export const addListing=async (req,res) => {
       }
      return res.status(201).json(listing)
   } catch (error) {
-     return res.status(500).json({message:`AddListing error ${error}`})
+    // return res.status(500).json({message:`AddListing error ${error}`})
+     console.error("========== ADD LISTING ERROR ==========");
+  console.error(error);
+     return res.status(500).json({
+    message: error.message,
+  });
   }
 }
 
